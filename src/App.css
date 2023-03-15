@@ -1,0 +1,194 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Raleway', sans-serif;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid rgb(181, 179, 179);
+  background-color: rgb(192, 192, 255);
+}
+
+.navWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1240px;
+  margin: 0 10px;
+}
+
+h1 {
+  font-size: 29px;
+  color: #000000;
+  text-shadow: 1px 1px 2px rgb(181, 179, 179);
+}
+
+h1 span {
+  color: #ffffff;
+  text-shadow: 1px 1px 2px black;
+}
+
+.link {
+  font-size: 1.2rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 20px 20px;
+  color: #000000;
+}
+
+.link:hover,
+.link:focus {
+  text-decoration: underline;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  width: 1240px;
+}
+
+.bookWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 270px;
+  padding: 20px;
+}
+
+img {
+  margin-bottom: 10px;
+}
+
+.bookName {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: black;
+  overflow-wrap: break-word;
+}
+
+.bookAuthor {
+  margin: 5px 0;
+}
+
+.bookPrice {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.btnWrapper {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0 20px;
+}
+
+.btn {
+  padding: 10px;
+  margin: 10px;
+  border: none;
+  background-color: rgb(224, 224, 248);
+  cursor: pointer;
+  font-family: 'Raleway', sans-serif;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: rgb(234, 234, 248);
+}
+
+.wrapperAbout {
+  padding: 20px;
+}
+
+.textAbout {
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+.showBtn {
+  background-color: transparent;
+  border: none;
+  color: rgb(176, 176, 254);
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+.imgAbout {
+  display: block;
+  margin: 0 auto;
+}
+
+.wrapperContact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapperStore {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 600px;
+}
+
+.address {
+  margin: 20px 0 10px;
+  font-size: 1.3rem;
+}
+
+.phone {
+  margin: 0px 0 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.btnContactWrapper {
+  width: 603px;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 1280px) {
+  .navWrapper,
+  .container {
+    width: 930px;
+  }
+}
+
+@media (max-width: 980px) {
+  .navWrapper,
+  .container {
+    width: 780px;
+  }
+
+  img {
+    width: 220px; 
+    height: 355px;
+  }
+
+  .bookWrapper {
+    width: 220px; 
+  }
+}
+
+@media (max-width: 800px) {
+  .navWrapper,
+  .container {
+    width: 520px;
+  }
+
+  img {
+    width: 220px; 
+    height: 355px;
+  }
+
+  .bookWrapper {
+    width: 220px; 
+  }
+}
