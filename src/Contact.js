@@ -1,4 +1,4 @@
-import { slider } from './data';
+import { slider } from './Components/data/data';
 import Slider from './Slider';
 
 export default function Contact () {

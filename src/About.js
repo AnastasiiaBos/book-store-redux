@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { description } from "./data";
+import { description } from "./Components/data/data";
 
 export default function About () {
     const [showText, setShowText] = useState(true);
