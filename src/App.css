@@ -10,6 +10,7 @@ nav {
   justify-content: center;
   border-bottom: 1px solid rgb(181, 179, 179);
   background-color: rgb(192, 192, 255);
+  position: relative;
 }
 
 .navWrapper {
@@ -19,6 +20,99 @@ nav {
   width: 1240px;
   margin: 0 10px;
 }
+
+.menu {
+  display: flex;
+  align-items: baseline;
+}
+
+.cart {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  background-color: lightblue;
+  width: 40%;
+  padding: 10px;
+}
+
+.cart h3 {
+  text-align: center;
+}
+
+.cartItem {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  border-bottom: 1px solid grey;
+  padding: 10px;
+}
+
+.cartItemBook {
+  display: flex;
+}
+
+.cartItemBookDetails {
+  width: 300px;
+}
+
+.bookImgCart {
+  width: 70px;
+  height: 120px;
+  margin: 10px;
+}
+
+.bookNameCart {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.cartItemPriceQuantityDetails {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.icon {
+  width: 25px;
+  cursor: pointer;
+}
+
+.cartItemInput {
+  font-family: 'Raleway', sans-serif;
+  padding: 7px;
+  margin-right: 10px;
+}
+
+.cartItemPrice {
+  margin: 0;
+  width: 70px;
+}
+
+.cartTotal h3 {
+  padding: 0;
+  margin: 0;
+}
+
+.cartTotal {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.checkoutBtn {
+  padding: 20px;
+  align-self: center;
+  font-size: 1.05em;
+  letter-spacing: 1px;
+}
+
+.iconFavorites {
+  margin-right: 15px;
+}
+
 
 h1 {
   font-size: 29px;
@@ -89,7 +183,8 @@ h1 span {
   } 
 }
 
-.buyButtonsWrapper button {
+.buyButtonsWrapper button,
+.checkoutBtn {
   padding: 10px;
   box-sizing: border-box;
   font-family: 'Raleway', sans-serif;
@@ -101,7 +196,8 @@ h1 span {
   border-radius: 2px;
 }
 
-.buyButtonsWrapper button:first-child {
+.buyButtonsWrapper button:first-child, 
+.checkoutBtn {
   margin-bottom: 10px;
   background-color: rgb(203, 203, 254);
   font-weight: bold;
@@ -113,9 +209,9 @@ h1 span {
 }
 
 .buyButtonsWrapper button:first-child:hover,
-.buyButtonsWrapper button:first-child:focus {
-  /* border-color: rgb(192, 192, 255);
-  background-color: rgb(192, 192, 255); */
+.buyButtonsWrapper button:first-child:focus,
+.checkoutBtn:hover,
+.checkoutBtn:focus {
   border-color: rgb(171, 171, 248);
   background-color: rgb(171, 171, 248);
 }
@@ -147,6 +243,34 @@ h1 span {
   margin: 5px 0;
 }
 
+.bookAddedPhrase {
+  background-color: red;
+  font-size: 20px;
+  position: fixed;
+  width: 300px;
+  height: 100px;
+}
+
+/* .bookAddedWrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  background-color: #ffffff;
+  box-shadow: 0 4px 20px rgba((0,0,0,0),0.15);
+  z-index: 3;
+} */
+
+.show {
+  opacity: 1;
+}
+
+.hide {
+  opacity: 0
+}
+
 .btnWrapper {
   display: flex;
   justify-content: center;
@@ -173,6 +297,7 @@ h1 span {
   background-color: rgb(234, 234, 248);
 }
 
+/* ABOUT page */
 .wrapperAbout {
   padding: 20px;
 }
@@ -270,6 +395,14 @@ h1 span {
   .link {
     font-size: 1.1em;
     padding: 20px 10px;
+  }
+
+  .icon {
+    width: 20px;
+  }
+
+  .iconFavorites {
+    margin-right: 10px;
   }
 
   .bookWrapper {

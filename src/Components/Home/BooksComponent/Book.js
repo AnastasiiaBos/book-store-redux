@@ -1,15 +1,22 @@
+import { useDispatch } from "react-redux";
+import { addItemToCart } from "../../redux/cartSlice";
+// import BookAdded from "./BookAdded";
 
-const Book = ( {book} ) => {
+const Book = ({ book, onBookAdded }) => {
     // const {id, name, author, image, wiki, price} = book; //можно сделать деструктуризацию, чтобы каэжый раз не писать book
+    const dispatch = useDispatch();
 
     return (
         <div className="bookWrapper">
             <div className="imgWrapper">
                 <img className="bookImg" src={require(`../../../../public/img/${book.img}.jpg`)} alt="book" />
-
+                
                 {/* всплывающее окно: add to cart, add to wish list */}
                 <div className="buyButtonsWrapper">
-                    <button >Add to cart</button>
+                    <button onClick={ () => {
+                        dispatch(addItemToCart({id: book.id, book, quantity: 1}));
+                        onBookAdded();
+                        }}>Add to cart</button>
                     <button >Save to favorites</button>
                 </div>
             </div>
