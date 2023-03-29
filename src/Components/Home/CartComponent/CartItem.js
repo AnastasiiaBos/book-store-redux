@@ -17,8 +17,19 @@ const CartItem = ({ cartItem }) => {
             </div>
 
             <div className='cartItemPriceQuantityDetails'>
-                <input className="cartItemInput" type="number" min="1" max="10" value={cartItem.quantity}
-                onChange={(evt) => dispatch(updateItemQuantity({id: cartItem.bookId, quantity: +evt.target.value}))}></input>
+                
+                <input className="cartItemInput" type="number" min="1" max="20" value={cartItem.quantity}
+                onChange={(evt) => {
+                    let inputValue = evt.target.value;
+                    inputValue = Math.max(1, Math.min(20, Number(evt.target.value)));
+                    //если пользователь вводит меньше 1, то записывается 1; больше 20 -20
+
+                    if (!Number.isInteger(inputValue)) { //если пользователь вводит дробное число
+                        inputValue = Math.round(inputValue); //то оно округляется в ближайшую сторону
+                    }
+
+                    dispatch(updateItemQuantity({id: cartItem.bookId, quantity: +inputValue}));
+                    }}></input>
                 {/* при выборе пользователем quantity активируется reducer updateItemQuantity c payload {
                 id: cartItem.bookId - входной параметр id книги
                 quantity: +evt.target.value - входной параметр - значение input - что ввел пользователь превращенное в число
@@ -29,7 +40,7 @@ const CartItem = ({ cartItem }) => {
                 <p className="cartItemPrice">$ {cartItem.totalPrice.toFixed(2)}</p>
                 <img
                     onClick={() => dispatch(removeItemFromCart({cartItem}))}
-                    className="icon" src={deleteIcon} alt="delete"/>
+                    className="icon delete" src={deleteIcon} alt="delete"/>
             </div>
         </div>
     )

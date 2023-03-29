@@ -17,7 +17,7 @@ const Book = ({ book, onBookAdded }) => {
                         dispatch(addItemToCart({id: book.id, book, quantity: 1}));
                         onBookAdded();
                         }}>Add to cart</button>
-                    <button >Save to favorites</button>
+                    <button>Save to favorites</button>
                 </div>
             </div>
             <a className="bookName" href={book.wiki} rel="noreferrer" target="_blank">{book.name}</a>

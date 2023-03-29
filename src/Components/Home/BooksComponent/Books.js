@@ -12,9 +12,8 @@ const Books = () => {
     const bookAddedHandler = (selectedBookName) => {
         setIsModalVisible(true);
         setSelectedBook(selectedBookName);
-        setTimeout(() => { //показываем модальное окно на 3 секунды, а после меняем его сост-е на false
-            setIsModalVisible(false)
-        }, 3000);
+        setTimeout(() => setIsModalVisible(false), 1000);
+        //показываем модальное окно на 1 секунд, а после меняем его сост-е на false
     }
 
     return (
@@ -25,7 +24,9 @@ const Books = () => {
                 return book.genre === selectedGenre; //покажи книги жанр, которых в booksData совпадает с выбранным пользователем 
             })
             .map( book => <Book book={book} onBookAdded={() => bookAddedHandler(book.name)} key={book.id} />)}
-            <p className={`${isModalVisible && selectedBook? "show" : "hide"} bookAddedPhrase`}>"{selectedBook}" is added to your cart!</p>
+            <div className={`${isModalVisible && selectedBook? "show" : "hide"} bookAddedPhrase`}>
+                <span className="modalAddedBookName">"{selectedBook}"</span> is added to your cart!
+            </div>
         </div>
     )
 };

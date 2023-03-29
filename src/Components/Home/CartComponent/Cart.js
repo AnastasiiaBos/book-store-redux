@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import cartIcon from '../../../img/cart.png';
-import { getCartItems, getTotalCartPrice, getTotalCartQuantity  } from '../../redux/cartSlice';
+import { emptyCart, getCartItems, getTotalCartPrice, getTotalCartQuantity  } from '../../redux/cartSlice';
 import CartItem from './CartItem';
 
 const Cart = () => {
@@ -9,6 +9,13 @@ const Cart = () => {
     const cartItems = useSelector(getCartItems); 
     const totalCartPrice = useSelector(getTotalCartPrice);
     const totalCartQuantity = useSelector(getTotalCartQuantity);
+    const dispatch = useDispatch();
+
+    function declOfNum(number, titles) {  
+        let cases = [2, 0, 1, 1, 1, 2];  
+        return titles[ (number%100>4 && number%100<20)? 2 : cases[(number%10<5)?number%10:5] ];  
+    }
+    //в корзине правильное окончание у общего числа книг
 
     return (
         <div className='cartWrapper'>
@@ -22,13 +29,18 @@ const Cart = () => {
                 </div>
                 : <div className='cart'> {/* если корзина НЕ пуста */}
                     <h3>Your cart:</h3>
-                    {cartItems.map( item => <CartItem cartItem={item} key={item.bookId}/>)}
+                    <div className='cartItemWrapper'> 
+                        {cartItems.map( item => <CartItem cartItem={item} key={item.bookId}/>)}
+                    </div>
                     <div className='cartTotal'>
                         <h3>Total:</h3>
-                        <h3>{totalCartQuantity} item(s)</h3>
+                        <h3>{totalCartQuantity} {declOfNum(totalCartQuantity, ['item', 'items', 'items'])}</h3>
                         <h3>$ {totalCartPrice.toFixed(2)}</h3>
                     </div>
-                    <button className="checkoutBtn">CHECKOUT</button>
+                    <div className='cartButtons'>
+                        <button>CHECKOUT</button>
+                        <button onClick={() => dispatch(emptyCart())}>Empty Cart</button> {/* очистить всю корину */}
+                    </div>
                 </div>
                 }
             </div>
