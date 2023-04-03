@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import cartIcon from '../../../img/cart.png';
 import { emptyCart, getCartItems, getTotalCartPrice, getTotalCartQuantity  } from '../../redux/cartSlice';
@@ -10,6 +10,21 @@ const Cart = () => {
     const totalCartPrice = useSelector(getTotalCartPrice);
     const totalCartQuantity = useSelector(getTotalCartQuantity);
     const dispatch = useDispatch();
+    const cartRef = useRef(); //дает возм-сть получить доступ к DOM-узлам или React-элементам, созданным в рендер-методе - корзине
+    //нужен, чтобы отследить клик вне корзины и закрыть ее по этому клику
+
+    useEffect(() => {
+        const handler = (evt) => {
+            if (cartRef.current && !cartRef.current.contains(evt.target)) { //если мы находитмся вне Корзины
+                setShowCart(false); // поменяй состояние на false (т.е.закрой корзину)
+            }
+        }
+        document.addEventListener('mousedown', handler);
+        
+        return () => {
+            document.removeEventListener('mousedown', handler);
+        }
+    })
 
     function declOfNum(number, titles) {  
         let cases = [2, 0, 1, 1, 1, 2];  
@@ -18,7 +33,8 @@ const Cart = () => {
     //в корзине правильное окончание у общего числа книг
 
     return (
-        <div className='cartWrapper'>
+        <div className='cartWrapper' ref={cartRef}> {/* ref={cartRef} - цель - корзина и img, который переключает состояние*/}
+
             <img onClick={() => setShowCart(!showCart)} className='icon iconCart' src={cartIcon} alt="Cart"/>
 
             {/* если showCart===true, т.е. пользователь нажал на корзину, то покажи корзину: */}

@@ -9,7 +9,7 @@ export const cartSlice = createSlice({
     addItemToCart: (state, action) => {
         const timeId = new Date().getTime();
 
-        const oldBook = state.cartItems.find(item => {
+        const oldBook = state.cartItems.find( item => {
             return item.idToCompare === action.payload.id;
         }); // ищем ту книгу, которая уже есть в корзине
 
@@ -66,9 +66,9 @@ export const cartSlice = createSlice({
 
     emptyCart: state => {
         state.cartItems = [];
-    }
-},
-});
+    },
+  },
+})
 
 export const getTotalCartPrice = state => {
     return state.cart.cartItems.reduce( (totalValue, item) => {

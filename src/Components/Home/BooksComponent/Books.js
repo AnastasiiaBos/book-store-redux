@@ -24,7 +24,7 @@ const Books = () => {
                 return book.genre === selectedGenre; //покажи книги жанр, которых в booksData совпадает с выбранным пользователем 
             })
             .map( book => <Book book={book} onBookAdded={() => bookAddedHandler(book.name)} key={book.id} />)}
-            <div className={`${isModalVisible && selectedBook? "show" : "hide"} bookAddedPhrase`}>
+            <div className={`${isModalVisible && selectedBook? "showModal" : "hideModal"} bookAddedPhrase`}>
                 <span className="modalAddedBookName">"{selectedBook}"</span> is added to your cart!
             </div>
         </div>

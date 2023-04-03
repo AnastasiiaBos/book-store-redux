@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { description } from "./Components/data/data";
+import { aboutData } from "../data/aboutData";
 
 export default function About () {
     const [showText, setShowText] = useState(true);
@@ -18,7 +18,7 @@ export default function About () {
         4 great shops all over Warsaw, employing 38 people and having more than 4 thousands happy customers!
         </p>
         
-        {description.map((item, index) => {
+        {aboutData.map((item, index) => {
             const {text, image, showMore} = item;
             return (
                 <div key={index}>

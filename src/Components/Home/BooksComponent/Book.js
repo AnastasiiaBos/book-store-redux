@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { addItemToCart } from "../../redux/cartSlice";
-// import BookAdded from "./BookAdded";
+import { addItemToWishlist } from "../../redux/wishlistSlice";
 
 const Book = ({ book, onBookAdded }) => {
     // const {id, name, author, image, wiki, price} = book; //можно сделать деструктуризацию, чтобы каэжый раз не писать book
@@ -17,7 +17,7 @@ const Book = ({ book, onBookAdded }) => {
                         dispatch(addItemToCart({id: book.id, book, quantity: 1}));
                         onBookAdded();
                         }}>Add to cart</button>
-                    <button>Save to favorites</button>
+                    <button onClick={ () => dispatch(addItemToWishlist({id: book.id, book, quantity: 1}))}>Add to whishlist</button>
                 </div>
             </div>
             <a className="bookName" href={book.wiki} rel="noreferrer" target="_blank">{book.name}</a>

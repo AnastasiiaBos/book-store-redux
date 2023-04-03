@@ -5,33 +5,33 @@ export default function Slider ({slider}) {
     const {id, image, address, phone} = slider[storeNumber];
 
     const previouStore = () => {
-        // setStoreNumber(storeNumber - 1);
-        // if (storeNumber <= 0) {
-        //     setStoreNumber(slider.length - 1);
-        // }
+        setStoreNumber(storeNumber - 1);
+        if (storeNumber <= 0) {
+            setStoreNumber(slider.length - 1);
+        }
 
-        setStoreNumber(number => {
-            number --;
-            if (number < 0) {
-                number = slider.length - 1;
-            }
-            return number;
-        });
+        // setStoreNumber(number => {
+        //     number --;
+        //     if (number < 0) {
+        //         number = slider.length - 1;
+        //     }
+        //     return number;
+        // });
     };
 
     const nextStore = () => {
-        // setStoreNumber(storeNumber + 1);
-        // if (storeNumber >= slider.length - 1) {
-        //     setStoreNumber(0);
-        // }
+        setStoreNumber(storeNumber + 1);
+        if (storeNumber >= slider.length - 1) {
+            setStoreNumber(0);
+        }
 
-        setStoreNumber(number => {
-            number ++;
-            if (number > slider.length - 1) {
-                number = 0;
-            }
-            return number;
-        });
+        // setStoreNumber(number => {
+        //     number ++;
+        //     if (number > slider.length - 1) {
+        //         number = 0;
+        //     }
+        //     return number;
+        // });
     };
 
     return (
