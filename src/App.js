@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   BrowserRouter as Router,
   Routes,
@@ -14,17 +14,22 @@ import Contact from './Components/Contact/Contact';
 import About from './Components/About/About';
 
 function App() {
+  const [navIsClosed, setNavigationIsClosed] = useState(true);
+
   return (
       <Router>
-        <nav>
+        <nav className={`${navIsClosed? "navClosed" : "navOpened"}`}>
           <div className="navWrapper">
           <Link to='/'  className='logo'>
             <h1><span>D</span>y<span>N</span>asty</h1>
           </Link>
           <div className='menu'>
-            <Link to='/' className='link'>Home</Link>
-            <Link to='/about' className='link'>About</Link>
-            <Link to='/contact' className='link'>Contact</Link>
+            <button onClick={() => setNavigationIsClosed(!navIsClosed)} className="navToggle" type="button" aria-label="Open menu"></button>
+            <div className="mainMenu">
+              <Link to='/' className='link'>Home</Link>
+              <Link to='/about' className='link'>About</Link>
+              <Link to='/contact' className='link'>Contact</Link>
+            </div>
             <Link to='/wishlist' className='cartWrapper'>
               <img className='icon iconFavorites' src={favoritesIcon} alt="Wish list"/>
             </Link>

@@ -22,6 +22,49 @@ nav {
   margin: 0 10px;
 }
 
+.navToggle {
+  display: none;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  margin-right: 10px;
+  cursor: pointer;
+  border: 0;
+  background-color: rgb(192, 192, 255);
+}
+
+.navClosed .navToggle::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 0.8px;
+  background-color: #000000;
+  box-shadow: 0 8px 0 0 #000000, 0 16px 0 0 #000000;
+}
+
+.navOpened .navToggle::before,
+.navOpened .navToggle::after {
+  content: "";
+  position: absolute;
+  top: auto;
+  left: 0;
+  width: 22px;
+  height: 1px;
+  background-color: #000000;
+}
+
+.navOpened .navToggle::before {
+  transform: rotate(45deg);
+  box-shadow: none;
+}
+
+.navOpened .navToggle::after {
+  transform: rotate(-45deg);
+}
+
 .menu {
   display: flex;
   align-items: baseline;
@@ -38,7 +81,7 @@ nav {
   background-color: rgba(234, 234, 248, 0.98);
   border: 1px solid rgb(181, 179, 179);
   border-radius:2px;
-  width: 30%;
+  width: 35%;
   padding: 10px;
   animation: appearCart .4s ease-in-out;
 }
@@ -49,7 +92,7 @@ nav {
     opacity: 0;
   }
   100% {
-    transform: translateY(0);
+    transform: translateX(0);
     opacity: 1;
   } 
 }
@@ -76,6 +119,7 @@ nav {
 
 .cartItemBook {
   display: flex;
+  align-items: center;
 }
 
 .cartItemBook p {
@@ -318,8 +362,9 @@ h1 span {
   background-color: #ffffff;
   font-size: 20px;
   position: fixed;
-  top: 40%;
-  left: 36%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   width: 400px;
   margin: 0;
   padding: 50px 40px;
@@ -410,6 +455,7 @@ h1 span {
   justify-content: space-between;
   align-items: center;
   width: 250px;
+  margin-top: 10px;
 }
 
 .wishlistItemOrder p {
@@ -493,7 +539,8 @@ h1 span {
 
 @media (max-width: 1280px) {
   .navWrapper,
-  .container {
+  .container,
+  .wishlistContainer {
     width: 960px;
   }
 
@@ -510,22 +557,89 @@ h1 span {
     width: 190px;
     height: 315px;
   }
+
+  .cart {
+    width: 40%;
+  }
 }
 
 @media (max-width: 1050px) {
   .navWrapper,
-  .container {
+  .container,
+  .wishlistContainer {
     width: 750px;
   }
 
   .bookWrapper {
     margin: 30px;
   }
+
+  .cart {
+    width: 45%;
+  }
+
+  .cart h3 {
+    font-size: 1.05em;
+  }
+
+  .bookNameCart {
+    width: 140px;
+  }
+
+  .bookImgCart {
+    width: 60px;
+    height: 90px;
+  }
+
+  .cartItemBook p {
+    font-size: 0.80rem;
+  }
+
+  .cartItemInput {
+    width: 42px;
+    padding: 5px;
+  }
+
+  .cartItemPrice {
+    font-size: 0.85rem;
+    width: 60px;
+  }
+
+  .cartTotal h3 {
+    font-size: 17px;
+  }
+
+  .cartButtons button {
+    font-size: 13px;
+  }
+
+  .cartButtons button:first-child {
+    font-size: 14px;
+  }
+
+  .wishlistContainer h2 {
+    font-size: 1.3em;
+  }
+
+  .wishlistItemBook p {
+    font-size: 1.1rem;
+  }
+
+  .imgAbout {
+    width: 780px;
+  }
+
+  .bookAddedPhrase {
+    width: 350px;
+    padding: 40px 30px;
+    font-size: 18px;
+  }
 }
 
 @media (max-width: 800px) {
   .navWrapper,
-  .container {
+  .container,
+  .wishlistContainer {
     width: 525px;
   }
 
@@ -579,6 +693,87 @@ h1 span {
   .btn {
     margin: 5px;
   }
+
+  .cart {
+    right: 10%;
+    left: 10%;
+    width: auto;
+    animation: appearCartTablet .4s ease-in-out;
+  }
+
+  @keyframes appearCartTablet {
+    0% {
+      transform: translateY(30px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    } 
+  }
+
+  .bookNameCart {
+    width: 200px;
+  }
+
+  .wishlistItemOrder {
+    width: 200px;
+  }
+
+  .wishlistItemBook p {
+    font-size: 0.9rem;
+  }
+
+  .wishlistItemOrder p {
+    font-size: 1rem;
+  }
+
+  .bookNameWishlist {
+    font-weight: bold;
+    width: 170px;
+  }
+
+  .textAbout {
+    font-size: 1.1rem;
+  }
+
+  .imgAbout {
+    width: 540px;
+  }
+
+  .wrapperStore {
+    width: 525px;
+  }
+
+  iframe {
+    width: 525px;
+  }
+
+  .address {
+    min-height: 42px;
+  }
+
+  .address,
+  .phone {
+    font-size: 1.1rem;
+  }
+
+  .btnContactWrapper {
+    width: 525px;
+  }
+
+  .bookAddedPhrase {
+    width: 300px;
+    padding: 40px 30px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 670px) {
+  .cart {
+    right: 8%;
+    left: 8%;
+  }
 }
 
 @media (max-width: 580px) {
@@ -586,7 +781,7 @@ h1 span {
     width: 390px;
   }
 
-  .container {
+  .container{
     width: 370px;
   }
 
@@ -628,6 +823,117 @@ h1 span {
     align-self: center;
     padding: 10px;
     min-height: 52px;
+  }
+
+  .cart {
+    right: 4%;
+    left: 4%;
+  }
+
+  .bookNameCart {
+    width: 150px;
+  }
+
+  .wishlistContainer {
+    width: 440px;
+  }
+
+  .wishlistContainer h2 {
+    font-size: 1.2em;
+  }
+
+  .wishlistItemBook p {
+    font-size: 0.85rem;
+  }
+
+  .wishlistItemOrder {
+    width: 155px;
+  }
+
+  .wishlistItemOrder p {
+    font-size: 0.9rem;
+  }
+  
+  .wishlistAddToCartBtn {
+    font-size: 12px;
+    width: 70px;
+    padding: 5px;
+  }
+
+  .wishlistItemOrder {
+    font-size: 12px;
+  }
+
+  .textAbout {
+    font-size: 1rem;
+  }
+
+  .wrapperContact h3 {
+    font-size: 1.05rem;
+  }
+
+  .imgAbout,
+  .wrapperStore,
+  .btnContactWrapper {
+    width: 420px;
+  }
+
+  .btnContactWrapper button {
+    min-height: auto;
+    margin: 0;
+  }
+
+  iframe {
+    width: 420px;
+    height: 300px;
+  }
+
+  .address,
+  .phone {
+    font-size: 1rem;
+  }
+
+  .showBtn {
+    font-size: 0.95rem;
+  }
+  
+  .bookAddedPhrase {
+    width: 200px;
+    padding: 30px 20px;
+    font-size: 14px;
+  }
+
+  .navToggle {
+    display: block;
+  }
+
+  .navClosed .mainMenu {
+    display: none;
+  }
+
+  .menu {
+    align-items: center;
+  }
+
+  .mainMenu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: rgb(224, 224, 248);
+    padding: 0; 
+    top: 100%;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+  }
+
+  .link {
+    /* border-bottom: 1px solid grey; */
+    width: 100%;
+    text-align: center;
+    padding: 10px;
   }
 }
 
