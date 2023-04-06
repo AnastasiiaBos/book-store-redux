@@ -6,11 +6,13 @@ const Genre = ({genreName}) => {
     const dispatch = useDispatch(); // при клике меняется стиль кнопки и класс (выбранного жанра)
     
     return (
-        <p className={`${genreName === selectedGenre ? 'genreSelected btn' : 'btn'}`}
-        onClick={() => dispatch(filterGenre(genreName))}> 
-        {/* state.selectedGenre = genreName  */}
-            {genreName}
-        </p>
+        <div className={`${genreName === selectedGenre ? 'genreSelected btn' : 'btn'}`}
+        onClick={() => dispatch(filterGenre(genreName))}>
+            <span> 
+            {/* state.selectedGenre = genreName  */}
+                {genreName}
+            </span>
+        </div>
     )
 };
 

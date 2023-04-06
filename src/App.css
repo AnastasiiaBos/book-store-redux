@@ -476,6 +476,7 @@ h1 span {
   align-self: flex-end;
   margin-top: 10px;
   margin-right: 10px;
+  font-size: 13.5px;
 }
 
 
@@ -787,6 +788,7 @@ h1 span {
 
   h1 {
     font-size: 25px;
+    margin: 17px 0;
   }
 
   .link {
@@ -820,9 +822,16 @@ h1 span {
 
   .btn {
     box-sizing: border-box;
-    align-self: center;
-    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    padding: 8px;
     min-height: 52px;
+    font-size: 13px;
+  }
+
+  .btn span {
+    text-align: center;
   }
 
   .cart {
@@ -937,6 +946,146 @@ h1 span {
   }
 }
 
-/* @media (max-width: 460px) {
-  доделать!
-} */
+@media (max-width: 460px) {
+
+  .navWrapper,
+  .container,
+  .wishlistContainer {
+    width: 330px;
+  }
+
+  .link {
+    font-size: 1.0em;
+  }
+
+  .btnWrapper {
+    width: 350px;
+  }
+
+  .btn {
+    min-height: 42px;
+    padding: 5px;
+    font-size: 12px;
+  }
+
+  .bookWrapper {
+    width: 145px;
+    margin: 10px;
+  }
+
+  .bookName {
+    font-size: 0.9em;
+    min-height: 38px;
+  }
+
+  .bookAuthor {
+    font-size: 0.85em;
+  }
+
+  .bookName {
+    font-size: 0.9em;
+  }
+
+  .bookAddedPhrase {
+    padding: 20px 20px;
+    font-size: 13px;
+  }
+
+  .cart {
+    right: 3%;
+    left: 3%;
+  }
+
+  .cart h3 {
+    font-size: 1.0em;
+  }
+
+  .cartItem {
+    padding: 5px;
+  }
+
+  .bookImgCart {
+    width: 55px;
+    height: 80px;
+    margin: 5px 7px 5px 5px;
+  }
+
+  .bookNameCart,
+  .bookNameWishlist {
+    width: 115px;
+  }
+
+  .cartItemBook p {
+    font-size: 0.75rem;
+  }
+
+  .cartItemPriceQuantityDetails {
+    margin-top: 7px;
+  }
+
+  .cartItemInput {
+    font-size: 12px;
+    width: 38px;
+    margin-right: 7px;
+  }
+
+  .cartItemPrice {
+    font-size: 0.80rem;
+    width: 55px;
+  }
+
+  .delete {
+    width: 17px;
+  }
+
+  .cartButtons button {
+    font-size: 12px;
+  }
+
+  .cartButtons button:first-child {
+    font-size: 13px;
+  }
+
+  .wishlistContainer h2 {
+    font-size: 1.1em;
+  }
+
+  .wishlistItem {
+    padding: 7px;
+  }
+
+  .wishlistItemBook p {
+    font-size: 0.8rem;
+  }
+
+  .wishlistItemOrder {
+    width: 134px;
+  }
+
+  .wishlistItemOrder p {
+    font-size: 0.85rem;
+  }
+
+  .wishlistAddToCartBtn {
+    font-size: 11px;
+    width: 58px;
+    padding: 2px;
+    box-sizing: border-box;
+    margin-right: 5px;
+  }
+
+  .emptyWishlist {
+    font-size: 12px;
+  }
+
+  .imgAbout,
+  .wrapperStore,
+  iframe,
+  .btnContactWrapper {
+    width: 310px;
+  }
+
+  .wrapperContact h3 {
+    font-size: 1.0rem;
+  }
+}
