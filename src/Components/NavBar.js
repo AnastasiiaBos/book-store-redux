@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import favoritesIcon from './../img/favorites.png';
 import Cart from './Home/CartComponent/Cart';
 
-function Navigation() {
+function NavBar() {
   const [navIsClosed, setNavigationIsClosed] = useState(true);
 
   return (
@@ -29,4 +29,4 @@ function Navigation() {
   );
 }
 
-export default Navigation;
+export default NavBar;
