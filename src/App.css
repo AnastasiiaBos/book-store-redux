@@ -156,6 +156,11 @@ nav {
   padding: 7px;
 }
 
+.cartItemInput::-webkit-inner-spin-button, 
+.cartItemInput::-webkit-outer-spin-button {  
+  opacity: 1;
+}
+
 .cartItemPrice {
   margin: 0;
   width: 70px;
